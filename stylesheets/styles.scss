@@ -1,0 +1,539 @@
+@import "normalize";
+
+$main-color: #ff9204;
+
+@mixin r_t_w_i($url, $width, $height) {
+  width: $width;
+  height: $height;
+  margin: 0 0 20px;
+  background: url($url) no-repeat;
+  background-size: 100% 100%;
+  text-indent: 110%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+%nostyle-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html {
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.4;
+  color: #555;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: #009ced;
+  text-decoration: none;
+}
+a:hover {
+  color: #0081c3;
+  text-decoration: underline;
+} /* 晚上問 */
+
+.container {
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.top-menu {
+  background-color: #ff9204;
+  height: 36px;
+
+  ul {
+    @extend %nostyle-list;
+    display: flex;
+    justify-content: flex-end;
+  }
+  a {
+    display: block;
+    width: 90px;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none; /*晚上問 */
+    transition-property: background;
+    transition-duration: 0.5s;
+    &:hover {
+      background: mix($main-color, #4e1d01, 90);
+    }
+  }
+  i {
+    margin-right: 5px;
+  }
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*最上面的註冊那一欄的方法*/
+h1.logo {
+  margin: 0;
+  img {
+    display: block;
+    width: 250px;
+    height: 62;
+  }
+  a {
+    display: block;
+  }
+}
+
+.top-block {
+  height: 80px;
+  background: #dddddd;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 9px 0;
+  } /* （區塊高度 80px - logo 高度 62px）/2 = 9px*/
+}
+
+.search {
+  position: relative;
+  input {
+    width: 285px;
+    height: 28px;
+    border: #ddd 2px solid;
+    border-radius: 17px;
+    padding-left: 35px;
+  }
+  i {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  input:focus {
+    outline: none;
+    border-color: #009ced;
+    box-shadow: #009ced 0 0 2px;
+  }
+} /*為什麼board radius是17px*/
+
+/*-----------------------------------------------------------------------*/
+/*上面是LOGO那一欄的方法*/
+
+.main-menu {
+  height: 38px;
+  border-top: #dddddd 1px solid;
+  border-bottom: #dddddd 1px solid;
+  button {
+    display: none;
+  }
+  ul {
+    @extend %nostyle-list;
+    display: flex;
+  }
+  li {
+    flex: 0 0 20%;
+  }
+  a {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    color: #3d4143;
+    text-align: center;
+    text-decoration: none;
+    transition-property: background;
+    transition-duration: 0.5s;
+    &:hover {
+      background: mix($main-color, #4e1d01, 90);
+      color: #dddddd;
+    }
+  }
+}
+
+/*-----------------------------------------------------------------------*/
+/*上面是main menu那一欄的方法*/
+
+.index-image {
+  height: 400px;
+  background: url(../images/index-image.jpg) center center no-repeat;
+  background-size: cover; /*還有另一種方法 backgroup-size: 100% 100%;*/
+  .container {
+    position: relative;
+    height: 100%;
+  }
+  h2 {
+    font-size: 50px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: rgba(#fff, 0.8) 0 0 0px, rgba(#000, 0.8) 0 0 10px;
+    position: absolute;
+    margin: 0 0 0 150px;
+    left: 50%;
+    bottom: 80px;
+  }
+  h2 span {
+    display: block;
+    position: relative;
+    left: 2em;
+  }
+} /*等下問*/
+
+/*-----------------------------------------------------------------------*/
+/*上面是main image那一欄的方法*/
+
+.new-item {
+  padding: 40px 0;
+  ul {
+    @extend %nostyle-list;
+  }
+  ul {
+    @extend %nostyle-list;
+    display: flex;
+    justify-content: space-between;
+  }
+  li {
+    flex: 0 0 340px;
+  }
+}
+
+/*-----------------------------------------------------------------------*/
+/*上面是main image那一欄的方法*/
+
+.featured-item {
+  background: #eee;
+  padding: 40px;
+  h2 {
+    color: #ff9204;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 0 30px;
+  }
+  .user {
+    float: right;
+    margin-top: 30px;
+  }
+  .user img {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-left: 10px;
+    vertical-align: middle; /*image translate to circle*/
+  }
+  h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.item-content {
+  display: flex;
+}
+
+.item-img {
+  flex: 0 0 360px;
+  margin-right: 30px;
+} /*flex problem*/
+
+.item-text {
+  flex: 1;
+} /*講義PG78*/
+/*-----------------------------------------------------------------------*/
+/*上面是main image那一欄的方法*/
+
+.news-and-principle {
+  padding: 40px 0;
+  .container {
+    display: flex;
+  }
+}
+
+.news {
+  flex-grow: 1;
+  min-width: 0;
+  h2 {
+    @include r_t_w_i("../images/news-title@2x.png", 120px, 36px);
+    margin: 0 0 20px;
+  }
+  ul {
+    @extend %nostyle-list;
+  }
+  li {
+    padding: 8px;
+    border-bottom: 1px #ddd dotted;
+  }
+  a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  li:nth-child(even) {
+    background: #f5f5f5;
+  }
+}
+
+/*-----------------------------------------------------------------------*/
+/*上面是main image那一欄的方法*/
+
+.principle {
+  flex: 0 0 280px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column-reverse;
+  color: #fff;
+  h2 {
+    height: 60px;
+    margin: 0;
+    padding: 20px;
+    background: #5f5547;
+    position: relative;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      background: #fff url(../images/cat-head-animate@2x.png);
+      background-size: 60px 300px;
+      border-radius: 50%;
+      vertical-align: middle;
+      animation-name: speaking;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: steps(4);
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      border: transparent 8px solid;
+      border-top: #ff9204 8px solid;
+      top: 0;
+      left: 40px;
+    }
+  }
+  h2 img {
+    display: none;
+    // display: inline-block;
+    // width: 60px;
+    // height: 60px;
+    // border-radius: 50%;
+    // margin-left: 5px;
+    // vertical-align: middle;
+    // backgroud-color: #fff;
+  }
+}
+.principle-content {
+  background: #ff9204;
+  padding: 10px;
+  flex: 1;
+}
+
+.page-footer {
+  padding: 40px 0;
+  background-color: #3d4143;
+  color: #fff;
+  text-align: center;
+  ul {
+    @extend %nostyle-list;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .business-hours {
+    flex: 0 0 100%;
+    margin: 20px 0;
+  }
+  li {
+    flex: 0 0 340px;
+  }
+}
+
+@keyframes speaking {
+  0% {
+    background-position: 0px 0px;
+  }
+  50% {
+    background-position: 0px -240px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .container {
+    width: 820px;
+  }
+  .index-image h2 {
+    left: auto;
+    margin: 0;
+    right: 2em;
+  }
+  .new-item li {
+    flex: 0 0 260px;
+    min-width: 0;
+  }
+  .page-footer li {
+    flex: 0 0 260px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .container {
+    width: 740px;
+  }
+  .new-item {
+    ul {
+      flex-direction: column;
+    }
+    li {
+      display: flex;
+      flex-basis: auto;
+      margin-bottom: 20px;
+    }
+    li:last-child {
+      margin-bottom: 0;
+    }
+    li > a {
+      flex: 0 0 200px;
+      margin-right: 20px;
+    }
+    li > div {
+      flex: 1;
+    }
+    li h2 {
+      margin-top: 0;
+    }
+  }
+  .news-and-principle .container {
+    flex-direction: column;
+  }
+  .news {
+    margin-bottom: 40px;
+  }
+  .principle {
+    margin-left: 0;
+    flex-basis: auto;
+    flex-direction: column;
+    h2 {
+      background: transparent;
+      color: #3d4143;
+      padding: 0;
+    }
+    h2:before {
+      border: $main-color 5px solid;
+    }
+    h2:after {
+      display: none;
+    }
+    ol {
+      list-style: none;
+    }
+    ol li {
+      position: relative;
+    }
+    ol li::before {
+      width: 20px;
+      height: 20px;
+      display: block;
+      border-radius: 50%;
+      background: #fff;
+      color: $main-color;
+      text-align: center;
+      line-height: 20px;
+      position: absolute;
+      top: 2px;
+      left: -25px;
+    }
+    ol li:nth-child(1)::before {
+      content: "1";
+    }
+    ol li:nth-child(2)::before {
+      content: "2";
+    }
+    ol li:nth-child(3)::before {
+      content: "3";
+    }
+  }
+  .page-footer {
+    ul {
+      flex-direction: column;
+    }
+    li {
+      flex: 0 0 180%;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    width: 90%;
+  }
+  .item-content {
+    flex-direction: column;
+  }
+  .item-image {
+    flex-basis: auto;
+    margin: 0 0 20px;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+  .featured-item h3 {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 640px) {
+  .top-block {
+    height: auto;
+  }
+  .top-block .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .h1-logo {
+    margin-bottom: 10px;
+  }
+  .main-menu {
+    position: relative;
+    .container {
+      width: 100%;
+    }
+    button {
+      display: block;
+      background: #fff;
+      border: none;
+      width: 100%;
+      height: 40px;
+      i {
+        margin-left: 5px;
+      }
+    }
+    ul {
+      flex-direction: column;
+      position: absolute;
+      top: 40px;
+      width: 100%;
+      background: rgba(#fff, 0.9);
+      z-index: 5;
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .item-image h2 {
+    font-size: 35px;
+  }
+  .new-item li {
+    flex-direction: column;
+    align-items: center;
+  }
+  .new-item li h2 {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .news a {
+    white-space: normal;
+  }
+}
